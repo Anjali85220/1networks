@@ -14,12 +14,12 @@ const items = [
 
 export default function Services() {
   return (
-     <section
+    <section
       id="services"
       className="relative pt-28 pb-24 px-8 font-[Poppins] scroll-mt-24 bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(${serviceBg})` }} // ✅ background applied
+      style={{ backgroundImage: `url(${serviceBg})` }}
     >
-
+      {/* Section heading */}
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Services</h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -28,7 +28,7 @@ export default function Services() {
       </div>
 
       {/* Grid of services */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
         {items.map((item, index) => (
           <motion.div
             key={index}
@@ -36,11 +36,11 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="bg-white/70 backdrop-blur-lg border border-gray-200 shadow-xl p-6 rounded-2xl hover:scale-105 hover:shadow-2xl transition transform duration-300"
+            className="bg-white/70 backdrop-blur-lg border border-gray-200 shadow-xl p-4 sm:p-6 rounded-2xl hover:scale-105 hover:shadow-2xl transition transform duration-300 text-center"
           >
-            <div className="text-5xl mb-4">{item.icon}</div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">{item.title}</h3>
-            <p className="text-gray-600 text-sm">{item.desc}</p>
+            <div className="text-3xl sm:text-5xl mb-3">{item.icon}</div>
+            <h3 className="text-base sm:text-xl font-semibold text-gray-800 mb-2">{item.title}</h3>
+            <p className="text-gray-600 text-xs sm:text-sm">{item.desc}</p>
           </motion.div>
         ))}
       </div>
