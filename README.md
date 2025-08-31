@@ -78,4 +78,4 @@ Shivanjali Dumpala – Frontend development, UI/UX, deployment
 For business inquiries:
 📧 Email:  preetikiran@1networks.in 
 
-🌐 Website: https://1networks.com
+🌐 Website: https://1networks.vercel.app/
