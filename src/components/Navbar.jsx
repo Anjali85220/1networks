@@ -21,11 +21,13 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full flex justify-between items-center px-6 py-3 z-50 transition-all duration-300 ${
-        isHero
-          ? "bg-transparent"
-          : "bg-white/90 backdrop-blur-md border-b border-white/30 shadow-lg"
-      }`}
+      className={`fixed top-0 left-0 w-full flex justify-between items-center px-6 py-3 z-50 transition-all duration-300 
+        ${
+          // 👇 On desktop → keep old logic, On mobile → force bg-white
+          isHero && !isOpen
+            ? "bg-transparent md:bg-transparent"
+            : "bg-white md:bg-white/90 md:backdrop-blur-md md:border-b md:border-white/30 md:shadow-lg"
+        }`}
     >
       {/* Logo + Title */}
       <div className="flex items-center space-x-3">
