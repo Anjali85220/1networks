@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+1Networks Company Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive company website for 1Networks, designed to showcase services, company values, and contact information. Built with React and styled for a professional corporate look.
 
-## Available Scripts
+🚀 Features
 
-In the project directory, you can run:
+Responsive design (mobile, tablet, desktop support)
 
-### `npm start`
+Modern landing page with hero section
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Services & About Us sections
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Contact form integration
 
-### `npm test`
+SEO-friendly structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Lightweight & fast-loading
 
-### `npm run build`
+🛠️ Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Frontend: React, JavaScript, HTML5, CSS3 (Tailwind/Bootstrap if used)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Animations: Framer Motion / CSS Animations (if added)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Deployment: Vercel / Netlify / GitHub Pages
 
-### `npm run eject`
+📂 Project Structure
+1networks-website/
+│── public/           # Static assets
+│── src/
+│   ├── components/   # Reusable UI components
+│   ├── pages/        # Page-level components
+│   ├── assets/       # Images, icons
+│   ├── App.js        # Main app entry
+│   ├── index.js      # React DOM render
+│── package.json
+│── README.md
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+⚙️ Setup & Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Clone the repository
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+git clone https://github.com/your-username/1networks-website.git
+cd 1networks-website
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+Install dependencies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+npm install
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+Run locally
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+npm start
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Build for production
 
-### Making a Progressive Web App
+npm run build
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+🌍 Deployment
 
-### Advanced Configuration
+This project can be deployed on Vercel, Netlify, or GitHub Pages.
+Example (Vercel):
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+npm run build
+# push code to GitHub and import repo into Vercel dashboard
 
-### Deployment
+📸 Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+(Add screenshots of homepage, services, contact page etc.)
 
-### `npm run build` fails to minify
+👩‍💻 Contributors
+Shivanjali Dumpala – Frontend development, UI/UX, deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+📬 Contact
+
+For business inquiries:
+📧 Email:  preetikiran@1networks.in 
+
+🌐 Website: https://1networks.com
