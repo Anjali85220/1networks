@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react"; // hamburger + close icons
+import { useEffect, useRef, useState } from "react";
+import { Menu, X } from "lucide-react";
 import logo from "../assets/logo.ico";
 
 export default function Navbar() {
   const [isHero, setIsHero] = useState(true);
-  const [isOpen, setIsOpen] = useState(false); // sidebar state
+  const [isOpen, setIsOpen] = useState(false);
+
+  const titleRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,16 +16,21 @@ export default function Navbar() {
         setIsHero(window.scrollY < heroBottom - 80);
       }
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navItems = [
+    { id: "hero", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "services", label: "Services" },
+    { id: "contact", label: "Contact" },
+  ];
 
   return (
     <nav
       className={`fixed top-0 left-0 w-full flex justify-between items-center px-6 py-3 z-50 transition-all duration-300 
         ${
-          // 👇 On desktop → keep old logic, On mobile → force bg-white
           isHero && !isOpen
             ? "bg-transparent md:bg-transparent"
             : "bg-white md:bg-white/90 md:backdrop-blur-md md:border-b md:border-white/30 md:shadow-lg"
@@ -34,27 +41,30 @@ export default function Navbar() {
         <img
           src={logo}
           alt="1NETWORKS Logo"
-          className="w-14 h-14 sm:w-20 sm:h-20 object-contain"
+          className="w-12 h-12 sm:w-16 sm:h-16 object-contain"
         />
-        <div>
-          <h1 className="text-2xl sm:text-5xl font-bold text-black tracking-wide">
+        <div className="inline-block text-center sm:text-left">
+          <h1
+            ref={titleRef}
+            className="text-3xl sm:text-5xl font-semibold text-black leading-tight"
+          >
             1NETWORKS
           </h1>
-          <p className="text-sm sm:text-lg text-red-600 font-semibold mt-1">
-            Powering the Networks of Tomorrow.
+          <p className="mt-1 text-[0.7rem] sm:text-sm text-red-600 whitespace-nowrap">
+            Powering the Networks of Tomorrow
           </p>
         </div>
       </div>
 
       {/* Desktop Nav Links */}
       <ul className="hidden md:flex space-x-6 font-poppins">
-        {["hero", "about", "services", "contact"].map((id) => (
+        {navItems.map(({ id, label }) => (
           <li key={id}>
             <a
               href={`#${id}`}
-              className="px-6 py-2 border border-black rounded-full text-lg text-black hover:bg-black hover:text-red-400 cursor-pointer transition"
+              className="px-10 py-2 rounded-full text-lg bg-black text-white border border-black hover:bg-black hover:text-red-400 cursor-pointer transition"
             >
-              {id.charAt(0).toUpperCase() + id.slice(1)}
+              {label}
             </a>
           </li>
         ))}
@@ -81,14 +91,14 @@ export default function Navbar() {
           </button>
         </div>
         <ul className="flex flex-col space-y-4 p-6 font-poppins">
-          {["hero", "about", "services", "contact"].map((id) => (
+          {navItems.map(({ id, label }) => (
             <li key={id}>
               <a
                 href={`#${id}`}
                 onClick={() => setIsOpen(false)}
                 className="block px-4 py-2 text-lg border-b border-gray-200 text-black hover:text-red-600 transition"
               >
-                {id.charAt(0).toUpperCase() + id.slice(1)}
+                {label}
               </a>
             </li>
           ))}

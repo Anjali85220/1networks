@@ -1,15 +1,23 @@
 import { motion } from "framer-motion";
-import serviceBg from "../assets/service.png";
+import { 
+  FaCloud, 
+  FaCogs, 
+  FaBuilding, 
+  FaTools, 
+  FaNetworkWired, 
+  FaServer, 
+  FaLightbulb 
+} from "react-icons/fa";
 
 const items = [
-  { title: "Cloud & Edge Networking", desc: "Seamless, secure, and scalable infrastructure from edge to cloud.", icon: "☁️" },
-  { title: "OEM Integration", desc: "Tailored solutions and integrations for OEM partners.", icon: "🔧" },
-  { title: "Modern Data Center Infrastructure", desc: "High-performance, scalable, and secure DC designs.", icon: "🏢" },
-  { title: "AMC (Annual Maintenance Contracts)", desc: "Proactive maintenance and reliable support.", icon: "🛠️" },
-  { title: "Structured Cabling Solutions", desc: "Organized, reliable connectivity with easy scalability.", icon: "🔌" },
-  { title: "Servers / Storage", desc: "From desktops to servers—network-ready resources.", icon: "💾" },
-  { title: "IT Consulting", desc: "Use technology effectively to achieve growth.", icon: "💡" },
-  { title: "Cloud & AI FinOps", desc: "Optimize cloud costs and operations.", icon: "🤖" },
+  { title: "Cloud & AI FinOps", desc: "Optimize cloud costs and operations.", icon: <FaCloud className="text-red-600" /> },
+  { title: "OEM Integration", desc: "Tailored solutions and integrations for OEM partners.", icon: <FaCogs className="text-red-600" /> },
+  { title: "Modern Data Center Infrastructure", desc: "High-performance, scalable, and secure DC designs.", icon: <FaBuilding className="text-red-600" /> },
+  { title: "AMC (Annual Maintenance Contracts)", desc: "Proactive maintenance and reliable support.", icon: <FaTools className="text-red-600" /> },
+  { title: "Structured Cabling Solutions", desc: "Organized, reliable connectivity with easy scalability.", icon: <FaNetworkWired className="text-red-600" /> },
+  { title: "Servers / Storage", desc: "From desktops to servers—network-ready resources.", icon: <FaServer className="text-red-600" /> },
+  { title: "IT Consulting", desc: "Use technology effectively to achieve growth.", icon: <FaLightbulb className="text-red-600" /> },
+  { title: "Cloud & AI FinOps", desc: "Optimize cloud costs and operations.", icon: <FaCloud className="text-red-600" /> },
 ];
 
 export default function Services() {
@@ -17,7 +25,6 @@ export default function Services() {
     <section
       id="services"
       className="relative pt-28 pb-24 px-8 font-[Poppins] scroll-mt-24 bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(${serviceBg})` }}
     >
       {/* Section heading */}
       <div className="text-center mb-12">
@@ -28,22 +35,23 @@ export default function Services() {
       </div>
 
       {/* Grid of services */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
-        {items.map((item, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            className="bg-white/70 backdrop-blur-lg border border-gray-200 shadow-xl p-4 sm:p-6 rounded-2xl hover:scale-105 hover:shadow-2xl transition transform duration-300 text-center"
-          >
-            <div className="text-3xl sm:text-5xl mb-3">{item.icon}</div>
-            <h3 className="text-base sm:text-xl font-semibold text-gray-800 mb-2">{item.title}</h3>
-            <p className="text-gray-600 text-xs sm:text-sm">{item.desc}</p>
-          </motion.div>
-        ))}
-      </div>
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+  {items.map((item, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      className="bg-white p-6 rounded-2xl shadow-lg shadow-black/20 hover:scale-105 hover:shadow-2xl transition transform duration-300 text-center"
+    >
+      <div className="text-4xl sm:text-5xl mb-3 flex justify-center">{item.icon}</div>
+      <h3 className="text-base sm:text-xl font-semibold text-gray-800 mb-2">{item.title}</h3>
+      <p className="text-gray-600 text-sm">{item.desc}</p>
+    </motion.div>
+  ))}
+</div>
+
     </section>
   );
 }
