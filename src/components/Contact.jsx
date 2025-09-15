@@ -53,14 +53,13 @@ export default function Contact() {
     <div className="flex flex-col space-y-6">
       {/* Contact Info */}
       <div className="bg-gray-900 text-white border-2 rounded-2xl p-6 text-center shadow-md">
-        <h3 className="text-xl font-semibold mb-3">Get in Touch</h3>
+        <h3 className="text-xl font-semibold text-red-600 mb-3">Get in Touch</h3>
         <p className="text-gray-300 text-sm mb-5 leading-relaxed">
           Ready to transform your network infrastructure? Our experts are
           here to help.
         </p>
         <div className="space-y-1">
           <h4 className="font-medium text-lg">Preeti Kiran</h4>
-          <p className="text-sm">📞 +91 9845522880</p>
           <p className="text-sm">✉️ preetikiran@1networks.in</p>
         </div>
       </div>
