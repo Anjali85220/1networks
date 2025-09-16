@@ -110,8 +110,14 @@ export default function About() {
 </section>
 
       {/* === Section 2: Our Values === */}
-      <section className="relative min-h-screen flex items-center justify-center font-[Poppins] px-6 py-16 bg-gray-50">
-  <div className="w-full max-w-4xl">
+      <section className="relative min-h-screen flex items-center justify-center font-[Poppins] px-6 py-16 bg-gray-50 overflow-hidden">
+  {/* Background animation container */}
+  <div className="absolute inset-0 -z-10">
+    <div className="absolute top-20 left-20 w-32 h-32 bg-red-500 rounded-full opacity-10 animate-pulse"></div>
+    <div className="absolute bottom-20 right-20 w-40 h-40 bg-black rounded-full opacity-5 animate-pulse" style={{ animationDelay: '2s' }}></div>
+    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-white rounded-full opacity-20 animate-pulse" style={{ animationDelay: '4s' }}></div>
+  </div>
+  <div className="w-full max-w-4xl relative z-10">
     <h2 className="text-3xl md:text-4xl font-bold text-center text-black mb-10">
       Our Values
     </h2>
@@ -181,17 +187,40 @@ export default function About() {
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.8 }}
-    className="text-3xl md:text-4xl font-bold text-black mb-16 text-center"
+    className="text-3xl md:text-4xl font-bold text-black mb-8 md:mb-16 text-center"
   >
     WHAT MAKES US UNIQUE
   </motion.h2>
 
-  <div className="relative max-w-6xl mx-auto flex flex-col md:flex-row justify-between">
+  {/* Mobile Layout: Vertical Stack */}
+  <div className="flex flex-col space-y-6 md:hidden">
+    {uniqueValues.map((val, idx) => (
+      <motion.div
+        key={idx}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: idx * 0.1 }}
+        className="flex items-center space-x-4"
+      >
+        <div className="w-12 h-12 flex items-center justify-center rounded-full bg-red-100 text-red-600 shadow-md">
+          {val.icon}
+        </div>
+        <div className="bg-white p-4 rounded-2xl shadow-md border-l-4 border-red-500 flex-1 text-left">
+          <h3 className="font-semibold text-black mb-1">{val.title}</h3>
+          <p className="text-gray-600 text-sm">{val.description}</p>
+        </div>
+      </motion.div>
+    ))}
+  </div>
+
+  {/* Desktop Layout */}
+  <div className="relative max-w-6xl mx-auto hidden md:flex flex-row justify-between">
     {/* Central vertical line */}
-    <div className="absolute left-1/2 top-0 w-1 bg-red-500 h-full hidden md:block"></div>
+    <div className="absolute left-1/2 top-0 w-1 bg-red-500 h-full"></div>
 
     {/* Left Column */}
-    <div className="flex flex-col justify-between space-y-12 md:mr-6">
+    <div className="flex flex-col justify-between space-y-12 mr-6">
       {uniqueValues.slice(0, 4).map((val, idx) => (
         <motion.div
           key={idx}
@@ -216,7 +245,7 @@ export default function About() {
     </div>
 
     {/* Right Column */}
-    <div className="flex flex-col justify-between space-y-12 md:ml-6">
+    <div className="flex flex-col justify-between space-y-12 ml-6">
       {uniqueValues.slice(4, 8).map((val, idx) => (
         <motion.div
           key={idx}

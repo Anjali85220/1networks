@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link} from 'react-router-dom';
 import logo from "../assets/logo.ico";
 
 export default function Navbar() {
@@ -21,17 +22,19 @@ export default function Navbar() {
   }, []);
 
   const navItems = [
-    { id: "hero", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "services", label: "Services" },
-    { id: "contact", label: "Contact" },
+    { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
+    { label: "Services", path: "/services" },
+    { label: "Contact", path: "/contact" },
   ];
 
   return (
     <nav
       className={`fixed top-0 left-0 w-full flex justify-between items-center px-6 py-2 z-50 transition-all duration-300
         ${
-          isHero && !isOpen
+          isOpen
+            ? "bg-black backdrop-blur-md" // when menu open on mobile
+            : isHero
             ? "bg-gradient-to-r from-black/10 via-gray-100/60 to-black/90 backdrop-blur-md" // when over video
             : "bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-md" // after scroll
         }`}
@@ -64,10 +67,10 @@ export default function Navbar() {
 
       {/* Desktop Nav Links */}
       <ul className="hidden md:flex space-x-4 lg:space-x-6 font-medium">
-        {navItems.map(({ id, label }) => (
-          <li key={id}>
-            <a
-              href={`#${id}`}
+        {navItems.map((item) => (
+          <li key={item.label}>
+            <Link
+              to={item.path}
               className={`px-6 py-2 rounded-full text-base shadow-md transition-all duration-300
                 ${
                   isHero
@@ -75,8 +78,8 @@ export default function Navbar() {
                     : "bg-black text-white hover:bg-red-600"
                 }`}
             >
-              {label}
-            </a>
+              {item.label}
+            </Link>
           </li>
         ))}
       </ul>
@@ -91,7 +94,7 @@ export default function Navbar() {
 
       {/* Sidebar Drawer */}
       <div
-        className={`fixed top-0 right-0 h-full w-3/4 max-w-xs bg-gradient-to-b from-black/90 via-gray-900/90 to-red-800/90 text-white backdrop-blur-md shadow-lg transform
+        className={`fixed top-0 right-0 h-full w-3/4 max-w-xs bg-black text-white backdrop-blur-md shadow-lg transform
           ${isOpen ? "translate-x-0" : "translate-x-full"}
           transition-transform duration-300 md:hidden z-50`}
       >
@@ -101,16 +104,16 @@ export default function Navbar() {
             <X size={28} />
           </button>
         </div>
-        <ul className="flex flex-col space-y-4 p-6">
-          {navItems.map(({ id, label }) => (
-            <li key={id}>
-              <a
-                href={`#${id}`}
+        <ul className="flex flex-col space-y-4 p-6 bg-black">
+          {navItems.map((item) => (
+            <li key={item.label}>
+              <Link
+                to={item.path}
                 onClick={() => setIsOpen(false)}
                 className="block px-4 py-3 rounded-lg bg-white text-black text-lg font-semibold shadow hover:bg-red-600 hover:text-white transition-all"
               >
-                {label}
-              </a>
+                {item.label}
+              </Link>
             </li>
           ))}
         </ul>

@@ -12,7 +12,7 @@ export default function Hero() {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover hidden md:block"
       >
         <source src={homeVideo} type="video/mp4" />
         Your browser does not support the video tag.
