@@ -1,4 +1,6 @@
-- [x] Modified the "WHAT MAKES US UNIQUE" section in About.jsx: removed hidden classes, arranged contents in a vertical column for mobile view
-- [x] Made service boxes mobile responsive in Services.jsx and ServicesPage.jsx: single column on mobile, added responsive padding, reduced text sizes, adjusted icon sizes
-- [x] Removed background video from hero section on mobile view in Hero.jsx
-- [x] Added black background to navbar on mobile when hamburger menu is opened in Navbar.jsx
+- [x] Remove the mobile background animation div block in Hero.jsx
+- [x] Set mobile_hero.mp4 as background video for hero section on mobile view only
+- [x] Move the text content in hero up by about 1 cm
+a- [x] Remove the mobile background animation div block in Hero.jsx
+- [x] Set mobile_hero.mp4 as background video for hero section on mobile view only
+- Move the text content in hero up by about 1 cm
