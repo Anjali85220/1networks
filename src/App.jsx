@@ -10,14 +10,8 @@ import Preloader from "./components/Preloader";
 import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
-import ServiceCloudFinOpsPage from './pages/ServiceCloudFinOpsPage';
-import ServiceOEMIntegrationPage from './pages/ServiceOEMIntegrationPage';
-import ServiceDataCenterPage from './pages/ServiceDataCenterPage';
-import ServiceAMCPage from './pages/ServiceAMCPage';
-import ServiceCablingPage from './pages/ServiceCablingPage';
-import ServiceServersPage from './pages/ServiceServersPage';
-import ServiceITConsultingPage from './pages/ServiceITConsultingPage';
-import ServiceCloudFinOps2Page from './pages/ServiceCloudFinOps2Page';
+import AllServicesPage from './pages/AllServicesPage';
+
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -59,15 +53,9 @@ function App() {
         } />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/all-services" element={<AllServicesPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/services/cloud-finops" element={<ServiceCloudFinOpsPage />} />
-        <Route path="/services/oem-integration" element={<ServiceOEMIntegrationPage />} />
-        <Route path="/services/data-center" element={<ServiceDataCenterPage />} />
-        <Route path="/services/amc" element={<ServiceAMCPage />} />
-        <Route path="/services/cabling" element={<ServiceCablingPage />} />
-        <Route path="/services/servers" element={<ServiceServersPage />} />
-        <Route path="/services/it-consulting" element={<ServiceITConsultingPage />} />
-        <Route path="/services/cloud-finops-2" element={<ServiceCloudFinOps2Page />} />
+
       </Routes>
     </BrowserRouter>
   );

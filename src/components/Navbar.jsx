@@ -36,14 +36,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full flex justify-between items-center px-6 py-2 z-50 transition-all duration-300
-        ${
-          isOpen
-            ? "bg-gray-500/50 backdrop-blur-md" // when menu open on mobile
-            : isMobile || isHero
-            ? "bg-gradient-to-r from-black/10 via-gray-100/60 to-black/90 backdrop-blur-md" // when over video or mobile
-            : "bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-md" // after scroll on desktop
-        }`}
+      className={`fixed top-0 left-0 w-full flex justify-between items-center px-6 py-2 z-50 transition-all duration-300 bg-white backdrop-blur-md border-b border-gray-200 shadow-md`}
     >
       {/* Logo + Title */}
       <div className="flex items-center space-x-3">
@@ -62,12 +55,15 @@ export default function Navbar() {
             1NETWORKS
           </h1>
           <p
-            className={`text-xs ${
-              isHero ? "text-red-500" : "text-red-600"
-            }`}
-          >
-            Powering the Networks<br />of Tomorrow
-          </p>
+  className={`text-xs sm:text-sm lg:text-base whitespace-nowrap ${
+    isHero ? "text-red-500" : "text-red-600"
+  }`}
+>
+  Powering Networks{" "}
+  <span className="inline sm:hidden"><br /></span>
+  of Tomorrow
+</p>
+
         </div>
       </div>
 
@@ -77,12 +73,7 @@ export default function Navbar() {
           <li key={item.label}>
             <Link
               to={item.path}
-              className={`px-6 py-2 rounded-full text-base shadow-md transition-all duration-300
-                ${
-                  isHero
-                    ? "bg-white/90 text-black hover:bg-red-600 hover:text-white"
-                    : "bg-black text-white hover:bg-red-600"
-                }`}
+              className="px-6 py-2 rounded-full text-base shadow-md transition-all duration-300 bg-black text-white hover:bg-red-600 hover:text-white"
             >
               {item.label}
             </Link>
@@ -92,7 +83,7 @@ export default function Navbar() {
 
       {/* Mobile Hamburger */}
       <button
-        className="md:hidden p-2 text-white"
+        className="md:hidden p-2 text-black"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? <X size={28} /> : <Menu size={28} />}
