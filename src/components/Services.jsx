@@ -10,6 +10,9 @@ import {
   FaLightbulb
 } from "react-icons/fa";
 
+// ✅ Import video from src
+import servicesVideo from "../assets/services.mp4";
+
 const items = [
   { title: "Cloud & AI FinOps", desc: "Optimize cloud costs and operations.", icon: <FaCloud className="text-red-600" />, link: "/services/cloud-finops" },
   { title: "OEM Integration", desc: "Tailored solutions and integrations for OEM partners.", icon: <FaCogs className="text-red-600" />, link: "/services/oem-integration" },
@@ -25,10 +28,22 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative pt-28 pb-24 px-8 font-[Poppins] scroll-mt-24 bg-cover bg-center bg-no-repeat"
+      className="relative pt-28 pb-24 px-8 font-[Poppins] scroll-mt-24 overflow-hidden"
     >
+      {/* Background video */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover -z-10"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
+        <source src={servicesVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
       {/* Section heading */}
-      <div className="text-center mb-12">
+      <div className="text-center mb-12 relative z-10">
         <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Services</h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Innovative, reliable, and future-ready solutions for modern businesses.
@@ -36,24 +51,27 @@ export default function Services() {
       </div>
 
       {/* Grid of services */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-  {items.map((item, index) => (
-    <Link key={index} to={item.link}>
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
-        viewport={{ once: true }}
-        className="bg-white p-4 sm:p-6 rounded-2xl shadow-lg shadow-black/20 hover:scale-105 hover:shadow-2xl transition transform duration-300 text-center cursor-pointer h-48 flex flex-col justify-between"
-      >
-        <div className="text-3xl sm:text-4xl lg:text-5xl mb-3 flex justify-center">{item.icon}</div>
-        <h3 className="text-sm sm:text-lg lg:text-xl font-semibold text-gray-800 mb-2 break-words">{item.title}</h3>
-        <p className="text-gray-600 text-xs sm:text-sm break-words">{item.desc}</p>
-      </motion.div>
-    </Link>
-  ))}
-</div>
-
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto relative z-10">
+        {items.map((item, index) => (
+          <Link key={index} to={item.link}>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white p-4 sm:p-6 rounded-2xl shadow-lg shadow-black/20 hover:scale-105 hover:shadow-2xl transition transform duration-300 text-center cursor-pointer h-48 flex flex-col justify-between"
+            >
+              <div className="text-3xl sm:text-4xl lg:text-5xl mb-3 flex justify-center">
+                {item.icon}
+              </div>
+              <h3 className="text-sm sm:text-lg lg:text-xl font-semibold text-gray-800 mb-2 break-words">
+                {item.title}
+              </h3>
+              <p className="text-gray-600 text-xs sm:text-sm break-words">{item.desc}</p>
+            </motion.div>
+          </Link>
+        ))}
+      </div>
     </section>
   );
 }

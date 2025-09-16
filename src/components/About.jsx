@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Target, Handshake, Lightbulb, Zap } from "lucide-react";
-
+import valuesVideo from "../assets/values.mp4";
 import {
   Rocket,
   Users,
@@ -109,14 +109,19 @@ export default function About() {
   </div>
 </section>
 
-      {/* === Section 2: Our Values === */}
-      <section className="relative min-h-screen flex items-center justify-center font-[Poppins] px-6 py-16 bg-gray-50 overflow-hidden">
-  {/* Background animation container */}
-  <div className="absolute inset-0 -z-10">
-    <div className="absolute top-20 left-20 w-32 h-32 bg-red-500 rounded-full opacity-10 animate-pulse"></div>
-    <div className="absolute bottom-20 right-20 w-40 h-40 bg-black rounded-full opacity-5 animate-pulse" style={{ animationDelay: '2s' }}></div>
-    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-white rounded-full opacity-20 animate-pulse" style={{ animationDelay: '4s' }}></div>
-  </div>
+     {/* === Section 2: Our Values === */}
+<section className="relative min-h-screen flex items-center justify-center font-[Poppins] px-6 py-16 overflow-hidden">
+  {/* Background video (no dark overlay) */}
+  <video
+  className="absolute inset-0 w-full h-full object-cover -z-10"
+  autoPlay
+  loop
+  muted
+  playsInline
+>
+  <source src={valuesVideo} type="video/mp4" />
+</video>
+
   <div className="w-full max-w-4xl relative z-10">
     <h2 className="text-3xl md:text-4xl font-bold text-center text-black mb-10">
       Our Values
@@ -158,18 +163,24 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.55, delay: idx * 0.12 }}
             whileHover={{ scale: 1.03, y: -6 }}
-            className="bg-white border border-gray-200 rounded-2xl shadow-md p-8 flex flex-col items-center text-center"
+            className="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-md p-8 flex flex-col items-center text-center"
           >
-            {/* floating icon (gentle up-down loop) */}
+            {/* floating icon */}
             <motion.div
               className="mb-4"
               animate={{ y: [0, -6, 0] }}
-              transition={{ repeat: Infinity, duration: 3.4, delay: idx * 0.25 }}
+              transition={{
+                repeat: Infinity,
+                duration: 3.4,
+                delay: idx * 0.25,
+              }}
             >
               <Icon className="w-10 h-10 text-red-600" aria-hidden="true" />
             </motion.div>
 
-            <h3 className="text-lg font-semibold text-black mb-2">{val.title}</h3>
+            <h3 className="text-lg font-semibold text-black mb-2">
+              {val.title}
+            </h3>
 
             <p className="text-sm text-gray-700 leading-relaxed">
               {val.description}
@@ -180,6 +191,8 @@ export default function About() {
     </div>
   </div>
 </section>
+
+
 {/* === Section 3: What Makes Us Unique === */}
 <section className="relative min-h-screen font-[Poppins] px-6 py-16 bg-white">
   <motion.h2
