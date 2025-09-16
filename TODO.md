@@ -2,4 +2,7 @@
 - [x] Create AllServicesPage.jsx with merged 8 service sections and scroll logic
 - [x] Update Services.jsx to change links to /all-services#service-id
 - [x] Update App.jsx to add /all-services route
+- [x] Update Navbar.jsx to change 'Services' link to '/all-services'
+- [x] Update App.jsx to remove ServicesPage import and route
+- [x] Delete ServicesPage.jsx
 - [ ] Test navigation

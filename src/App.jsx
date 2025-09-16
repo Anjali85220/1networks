@@ -8,7 +8,6 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Preloader from "./components/Preloader";
 import AboutPage from './pages/AboutPage';
-import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
 import AllServicesPage from './pages/AllServicesPage';
 
@@ -52,7 +51,6 @@ function App() {
           </div>
         } />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/services" element={<ServicesPage />} />
         <Route path="/all-services" element={<AllServicesPage />} />
         <Route path="/contact" element={<ContactPage />} />
 
